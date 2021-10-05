@@ -40,7 +40,7 @@ arr2.pop();
 
 // array functions
 function changeArr(arr) {
-    arr2[1] = "BONK";
+	arr2[1] = 'BONK';
 }
 
 // creating a nested array
@@ -49,22 +49,7 @@ const nestArr = [[1], [1, 1]];
 // accessing array
 console.log(nestArr[0][0]);
 
-
-
-
-
-
-
 // Loops!
-
-
-
-
-
-
-
-
-
 
 // Objects!
 
@@ -73,124 +58,116 @@ const exampleObject = {};
 
 // key-value pair in an object literal
 const keyValue = {
-    name: "doot",
-    role: "doot doot"
+	name: 'doot',
+	role: 'doot doot',
 };
 
 // Accessing objects and editing pieces
-keyValue.name = "noot noot";
+keyValue.name = 'noot noot';
 
 // adding methods using functions
 const functionObj = {
-    func: function () {
-        console.log("This is a function method inside an object");
-    }
+	func: function () {
+		console.log('This is a function method inside an object');
+	},
 };
 // calling obj function
 functionObj.func();
 
 // making a nested object
 const nestObj = {
-    oof: {
-        oofers: {
-            name: "mitch",
-            classify: function () {
-                console.log("Information redacted.");
-            },
-            "array example": ["turtles", "schleem"]
-        }
-    }
+	oof: {
+		oofers: {
+			name: 'mitch',
+			classify: function () {
+				console.log('Information redacted.');
+			},
+			'array example': ['turtles', 'schleem'],
+		},
+	},
 };
 // calling nested objects and their key-value pairs
 nestObj.oof.oofers.classify();
 console.log(nestObj.oof.oofers.name);
 
 // accessing keys with special characters
-console.log(nestObj.oof.oofers["array example"][0]);
+console.log(nestObj.oof.oofers['array example'][0]);
 
 // editing objects with functions
 function addProp(obj) {
-    obj.name = "Jimmy";
-    obj["meme meme"] = "meme";
+	obj.name = 'Jimmy';
+	obj['meme meme'] = 'meme';
 }
 // using
 addProp(keyValue);
 console.log(keyValue);
 
-
-
 // for...in loops object
 let spaceship = {
-    crew: {
-        captain: {
-            name: "Tom"
-        },
-        "first officer": {
-            name: "Rylee"
-        }
-    }
+	crew: {
+		captain: {
+			name: 'Tom',
+		},
+		'first officer': {
+			name: 'Rylee',
+		},
+	},
 };
 // for...in loop
 for (let crewMember in spaceship.crew) {
-    console.log(`${crewMember}: ${spaceship.crew[crewMember].name}`);
+	console.log(`${crewMember}: ${spaceship.crew[crewMember].name}`);
 }
 
 // 'this.' keyword for accessing other properties inside an object
 const robot = {
-    model: "1E78V2",
-    energyLevel: 100,
-    //shorthand function declaration within an object
-    provideInfo() {
-      return `I am ${this.model} and my current energy level is ${this.energyLevel}`;
-    }
-  };
+	model: '1E78V2',
+	energyLevel: 100,
+	//shorthand function declaration within an object
+	provideInfo() {
+		return `I am ${this.model} and my current energy level is ${this.energyLevel}`;
+	},
+};
 
 // Use an underscore to denote that a property should not be manually changed
-_dontChange: "oof";
+_dontChange: 'oof';
 
 // getter & setter methods
 const robot2 = {
-    _energyLevel: 100,
-    get energyLevel() {
-      if (typeof this._energyLevel === 'number') {
-        return `My current energy level is ${this._energyLevel}`;
-      } else {
-        return "System malfunction: cannot retrieve energy level";
-      }
-    },
-    // setters require at least one parameter
-    set energyLevel(level) {
-        if (typeof level === 'number' && level >= 0) {
-            this._energyLevel = level;
-        } else {
-            return "Please enter a valid number."
-        }
-    }
-  };
-  // no parentheses for calling getter and setter methods
-  console.log(robot.energyLevel);
-  // example of using setter method
-  robot2.energyLevel = 500;
+	_energyLevel: 100,
+	get energyLevel() {
+		if (typeof this._energyLevel === 'number') {
+			return `My current energy level is ${this._energyLevel}`;
+		} else {
+			return 'System malfunction: cannot retrieve energy level';
+		}
+	},
+	// setters require at least one parameter
+	set energyLevel(level) {
+		if (typeof level === 'number' && level >= 0) {
+			this._energyLevel = level;
+		} else {
+			return 'Please enter a valid number.';
+		}
+	},
+};
+// no parentheses for calling getter and setter methods
+console.log(robot.energyLevel);
+// example of using setter method
+robot2.energyLevel = 500;
 
 // factory functions, using "property value shorthand"
 const robotFactory = (model, mobile) => {
-    return {
-        model,
-        mobile
-    }
-  };
+	return {
+		model,
+		mobile,
+	};
+};
 
 // destructuring
 const { _energyLevel } = robot;
 console.log(_energyLevel);
 
 // don't forget to check the MDN on objects!
-
-
-
-
-
-
 
 // Classes!
 
@@ -203,30 +180,23 @@ The super keyword calls the constructor() of a parent class.
 Static methods are called on the class, but not on instances of the class.
 */
 
-
 // Example Class
 class Person {
-    constructor(name, age) {
-        this._name = name;
-        this._age = age;
-    }
-    get age() {
-        return this._age;
-    }
-    get name() {
-        return this._name;
-    }
+	constructor(name, age) {
+		this._name = name;
+		this._age = age;
+	}
+	get age() {
+		return this._age;
+	}
+	get name() {
+		return this._name;
+	}
 }
 
 // Using the class
-const Dave = new Person("Dave", 46);
+const Dave = new Person('Dave', 46);
 console.log(Dave.name, Dave.age);
-
-
-
-
-
-
 
 // Modules!
 
@@ -239,8 +209,6 @@ In JavaScript, there are two runtime environments and each has a preferred modul
 The Node runtime environment and the module.exports and require() syntax.
 The browser’s runtime environment and the ES6 import/export syntax.*/
 
-
-
 //Browser import/export
 
 // exporting named expressions:
@@ -249,11 +217,9 @@ export { function1, function2, variable1 };
 export default array1;
 
 // importing non-default exports:
-import { function1, function2 } from "./module.js";
+import { function1, function2 } from './module.js';
 //importing default exports:
-import array1 from "./module.js";
-
-
+import array1 from './module.js';
 
 //Node import/export
 
@@ -261,16 +227,10 @@ import array1 from "./module.js";
 module.exports.function1 = function1;
 
 //importing:
-const module = require("./module.js");
+const module = require('./module.js');
 
 //importing specifics:
-const { function1 } = require("./module.js");
-
-
-
-
-
-
+const { function1 } = require('./module.js');
 
 //Error handling
 
@@ -278,11 +238,9 @@ const { function1 } = require("./module.js");
 using the 'Error' function to throw an error in console, using the 'Throw' keyword, or using a try... catch statement.
 */
 
-
-
 // the Error function
 // this will not stop code from running, it is only used to notify the user that an error has occured and that it may cause issues.
-console.log(Error("error message..."));
+console.log(Error('error message...'));
 
 // the Throw keyword
 // this will stop the code from running and will notify the user with an error message.
@@ -300,3 +258,19 @@ try {
     console.log(e);
 }
 */
+
+// Sample Image Gallery thing
+const images = document.querySelectorAll('img');
+
+setInterval(() => {
+	if (i === 0) {
+		images[i].style.display = 'block';
+	} else if (i === images.length) {
+		images[i - 1].style.display = 'none';
+		images[0].style.display = 'block';
+	} else {
+		images[i - 1].style.display = 'none';
+		images[i].style.display = 'block';
+	}
+	i++;
+}, 6000);
