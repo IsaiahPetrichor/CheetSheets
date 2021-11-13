@@ -1,6 +1,4 @@
-const store = Redux.createStore(
-  (state = 5) => state
-);
+const store = Redux.createStore((state = 5) => state);
 
 // Change code below this line
-const currentState = store.getState()
+const currentState = store.getState();
