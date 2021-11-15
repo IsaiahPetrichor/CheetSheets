@@ -55,17 +55,131 @@ console.log(bubbleSort([1, 2, 3, 4, 5, 6, 7, 8, 9])); // Runs in O(n)
 // MERGE SORT
 {
 	/*
+	Merge sort consists of two distinct steps:
 
+	Splitting the input array – The algorithm recursively splits the 
+	input array until each element is in its own array.
+
+	Merging sorted arrays – The algorithm compares and combines the 
+	elements of arrays until the input array is sorted.
 	*/
 }
+
+// Example
+const mergeSort = (startArray) => {
+	const length = startArray.length;
+	if (length === 1) {
+		return startArray;
+	}
+
+	const mid = Math.floor(length / 2);
+	const leftArray = startArray.slice(0, mid);
+	const rightArray = startArray.slice(mid, length);
+
+	return merge(mergeSort(leftArray), mergeSort(rightArray));
+};
+
+const merge = (leftArray, rightArray) => {
+	const sortedArray = [];
+	while (leftArray.length > 0 && rightArray.length > 0) {
+		if (leftArray[0] < rightArray[0]) {
+			sortedArray.push(leftArray[0]);
+			leftArray.shift();
+		} else {
+			sortedArray.push(rightArray[0]);
+			rightArray.shift();
+		}
+	}
+	return sortedArray.concat(leftArray).concat(rightArray);
+};
+
+module.exports = { mergeSort };
+
+const inputArr = [3, 5, 2, 90, 4, 7];
+
+console.log(mergeSort(inputArr));
 
 /////////////////////////////////////////////////////////////////////
 
 // QUICKSORT
 {
 	/*
+	Unlike merge sort, which requires additional memory for auxiliary arrays, 
+	quicksort is space-saving because it deploys in-place sorting.
 
+	As runtime performance goes, quicksort requires more comparisons for 
+	sorting a larger input than mergesort. Like bubble sort, quicksort has a 
+	worst case runtime of O(N^2). This can happen when quicksort’s input 
+	data set comprises:
+
+	pre-sorted numbers,
+	backward-sorted numbers, or
+	all similar elements along with a poorly chosen pivot element that 
+	produces a partition of zero or one element.
+	On average, like merge sort, the runtime of quicksort is O(N * log N) 
+	if partition sizes are roughly equal.
+
+	The basic idea of the quicksort algorithm is to:
+
+	split the initial unsorted data set into a left partition and a right 
+	partition
+	sort each partition recursively until there is only one element left
+	return the sorted array
+	We use a pivot element to divide our unsorted array into two parts. 
+	The elements in these parts must meet these conditions after partitioning:
+
+	all elements in the left partition must be less than or equal to the pivot 
+	element
+	all elements in the right partition must be greater than or equal to the 
+	pivot element
+	Determining the pivot index is done through a procedure called partitioning. 
+	Our algorithm uses an array to store the data set and stipulates the 
+	boundary of the data set with left and right pointers. 
 	*/
 }
+// Uses the earlier defined 'swap' function
+// the Partition fuction:
+const partition = (array, leftIndex, rightIndex) => {
+	const pivot = array[Math.floor((rightIndex + leftIndex) / 2)];
+	while (leftIndex <= rightIndex) {
+		while (array[leftIndex] < pivot) {
+			leftIndex++;
+		}
+		while (array[rightIndex] > pivot) {
+			rightIndex--;
+		}
+
+		if (leftIndex <= rightIndex) {
+			swap(array, leftIndex, rightIndex);
+			leftIndex++;
+			rightIndex--;
+		}
+	}
+	return leftIndex;
+};
+
+// The actual quicksort function:
+const quicksort = (array, leftBound = 0, rightBound = array.length - 1) => {
+	if (leftBound < rightBound) {
+		console.log(
+			'. Calling partition',
+			array,
+			`with leftBound ${leftBound} and rightBound ${rightBound}`
+		);
+		const pivotIndex = partition(array, leftBound, rightBound);
+		console.log(`. Returning pivotIndex = ${pivotIndex}`);
+		console.log(
+			`\nCalling quicksort for left partition with leftBound ${leftBound} and (pivotIndex-1) ${
+				pivotIndex - 1
+			}`
+		);
+		quicksort(array, leftBound, pivotIndex - 1);
+		console.log(
+			`\nCalling quicksort for right partition with pivotIndex ${pivotIndex} and rightBound ${rightBound}`
+		);
+		quicksort(array, pivotIndex, rightBound);
+	}
+	return array;
+};
 
 /////////////////////////////////////////////////////////////////////
