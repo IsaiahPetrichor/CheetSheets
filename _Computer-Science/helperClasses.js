@@ -114,4 +114,37 @@ simpleGraph.addEdge(v11, v112);
 simpleGraph.addEdge(v12, v121);
 simpleGraph.addEdge(v21, v211);
 
-module.exports = simpleGraph;
+class Queue {
+	constructor(maxSize = Infinity) {
+		this.queue = new LinkedList();
+		this.size = 0;
+		this.maxSize = maxSize;
+	}
+
+	hasRoom() {
+		if (this.size < this.maxSize) return true;
+		return false;
+	}
+
+	isEmpty() {
+		if (this.size === 0) return true;
+		return false;
+	}
+
+	enqueue(data) {
+		if (!this.hasRoom()) throw new Error('Queue is full!');
+		this.queue.addToTail(data);
+		this.size++;
+		console.log(`Added ${data}! Queue size is now ${this.size}.`);
+	}
+
+	dequeue() {
+		if (this.isEmpty()) throw new Error('Queue is empty!');
+		const data = this.queue.removeHead();
+		this.size--;
+		console.log(`Removed ${data} from queue! Queue size is now ${this.size}.`);
+		return data;
+	}
+}
+
+module.exports = { simpleGraph, Queue };
