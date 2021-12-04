@@ -37,29 +37,29 @@
 
     3. Figure out what services to offer in the Niche
         {
-            1. What services to offer
+            1. What services to offer // Customized Shopify Web Apps
                 {
-                    are you interested in the work?
+                    are you interested in the work? // yes
 
-                    can you scale the service? are there enough customers out there? can you reuse components?
+                    can you scale the service? are there enough customers out there? can you reuse components? // yes and yes
 
-                    can you outsource work from this service?
+                    can you outsource work from this service? // dont really want to
                 }
 
             2. What do you charge for this service
                 {
-                    charging a flat fee is much better than charging hourly and it allows you to provide a more refined experience
+                    charging a flat fee is much better than charging hourly and it allows you to provide a more refined experience // for shopify this will depend on the project and i will figure it out as I go
 
-                    add recurring revenue, offer app hosting, etc.
+                    add recurring revenue, offer app hosting, etc. // Shopify subscriptions end up adding some revenue
                 }
         }
 
     4. Forming your company
         {
-            use a business lawyer to avoid significant legal troubles
+            use a business lawyer to avoid significant legal troubles // unneeded for solo freelancers using a service
 
-            get a business license if needed
+            get a business license if needed // not necessary in washington
 
-            think about possibly creating an actual company (LLC)
+            think about possibly creating an actual company (LLC) // no thanks
         }
 */
