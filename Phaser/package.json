@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "enable3d": "^0.24.1",
     "phaser": "^3.55.2"
   },
   "scripts": {
