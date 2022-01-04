@@ -1,0 +1,67 @@
+-- table to alter as we go
+CREATE TABLE asd (
+    id INTEGER,
+    name TEXT
+)
+
+-- select with specificity
+SELECT id FROM asd;
+
+-- rename at query with 'AS'
+SELECT name AS "Boop" FROM asd;
+
+-- use DISTINCT to query only unique values
+SELECT DISTINCT name FROM asd;
+
+-- use WHERE to filter queries
+SELECT * FROM asd
+WHERE id > 5;
+
+-- use LIKE to filter for a pattern
+SELECT * FROM asd
+-- this filters for names that start with 'A' and are 4 chars long
+WHERE name LIKE 'A___';
+-- use % with LIKE to match any number of chars before or after
+SELECT * FROM asd
+-- this selects all names that contain at least 1 'g'
+WHERE name LIKE '%G%';
+-- LIKE is not case sensitive
+
+-- use NULL to query as well
+SELECT * FROM asd
+WHERE name IS NULL;
+
+-- use BETWEEN to select a specific range of data
+SELECT * FROM asd
+-- this includes both 3 and 7
+WHERE id BETWEEN 3 AND 7;
+
+-- use AND to use multiple filters
+SELECT * FROM asd
+WHERE id BETWEEN 1 AND 3 AND name = 'A%';
+
+-- use OR to be less picky
+SELECT * FROM asd
+WHERE name = 'Isaiah' OR name = 'Rylee';
+
+-- use ORDER BY to sort the data in the query
+SELECT * FROM asd
+-- sorts by name from 'a' to 'z'
+ORDER BY name;
+
+-- use DESC to go from highest/last to lowest/first
+SELECT * FROM asd
+ORDER BY id DESC;
+
+-- use LIMIT to cap the amount of rows returned by query
+SELECT * FROM asd
+LIMIT 5;
+-- LIMIT always goes at the end of the query
+
+-- implement if logic using CASE
+SELECT name,
+  CASE
+    WHEN name = 'Isaiah' THEN 'Maybe me'
+    ELSE 'Not me'
+  END AS 'Whomst'
+FROM asd;
