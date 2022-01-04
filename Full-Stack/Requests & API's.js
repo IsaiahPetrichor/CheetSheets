@@ -45,6 +45,11 @@ const fetchResponsePromise = fetch(resource, {
 //fetch headers
 
 // fetch GET method
-fetch();
+fetch('https://s3.amazonaws.com/freecodecamp/funny-cat.jpg')
+	.then((res) => res.json())
+	.then((json) => {
+		document.getElementById('response-container').innerHTML =
+			JSON.stringify(json);
+	});
 
 //fetch POST method
