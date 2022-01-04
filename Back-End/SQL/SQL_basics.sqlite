@@ -1,0 +1,35 @@
+-- Creating a new table with constraints
+ CREATE TABLE cars (
+     -- can have any number of args, each makes a column
+
+     -- 'name_of_column' 'data_type' 'input_constraint'
+   id INTEGER PRIMARY KEY,
+   recipient TEXT NOT NULL,
+   award_name TEXT DEFAULT 'Grammy'
+ );
+
+-- Adding data to an existing database.
+-- use INSERT INTO followed by: 'database_name' ('parameters')
+INSERT INTO cars (id, name, year)
+-- define values being added using VALUES and a semicolon at the end.
+VALUES (1, 'Ford Mustang', 1967);
+
+-- Add columns to a table using ALTER
+ALTER TABLE cars
+ADD COLUMN model TEXT;
+
+-- Update data in a database using UPDATE
+UPDATE cars
+SET model = 'Fastback'
+WHERE id = 1;
+
+-- Delete data from a database using DELETE
+DELETE FROM cars
+-- this deletes the entire row containing a null value in the model column
+WHERE model IS NULL;
+
+-- Use SELECT to fetch data
+-- this fetches all the names in the cars database
+SELECT name FROM cars;
+-- this fetches the entire database
+SELECT * FROM cars;
