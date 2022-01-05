@@ -1,0 +1,50 @@
+-- count returns the amount of rows in a database
+SELECT COUNT(*) FROM table_name;
+
+-- sum adds all values within a column
+SELECT SUM(column_name) FROM table_name;
+
+-- min/max returns the lowest/highest value in a column
+SELECT MIN(column_name) FROM table_name;
+
+-- avg returns the average value in a column
+SELECT AVG(column_name) FROM table_name;
+
+-- round takes an extra parameter of what decimal place you want
+SELECT ROUND(AVG(column_name), 2) FROM table_name;
+-- this rounds the avg of a column to the second decimal place.
+
+-- GROUP BY organizes data into, well... groups
+SELECT category, SUM(usage)
+FROM table_name
+GROUP BY category;
+/* this will display a column with each distinct category as a row
+with another category containing the sum of each categories usage */
+
+-- you can shorthand the GROUP BY and ORDER BY commands
+SELECT category, SUM(usage)
+FROM table_name
+GROUP BY 1
+-- this will group it by category
+ORDER BY 2 DESC;
+-- this will order it from high to low based on SUM(usage)
+
+-- you can also GROUP BY multiple columns
+
+-- you can filter groups using HAVING
+SELECT category, ROUND(AVG(usage)),
+  COUNT(*)
+FROM table_name
+GROUP BY category
+HAVING COUNT(*) > 10;
+
+-- the proper order for queries is:
+/*
+SELECT
+FROM
+WHERE
+GROUP BY
+HAVING
+ORDER BY
+LIMIT
+*/
