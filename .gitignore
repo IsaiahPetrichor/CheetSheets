@@ -1,3 +1,6 @@
 #cpp helper files
 /.vs
 /CppProperties.json
+
+#node modules
+/_Game-Development/Phaser/node_modules
