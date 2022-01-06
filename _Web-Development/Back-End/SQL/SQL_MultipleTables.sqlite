@@ -1,0 +1,29 @@
+-- use JOIN w/ ON to sync data across tables
+SELECT *
+FROM orders
+JOIN subscriptions
+    ON orders.subscription_id = subscriptions.subscription_id;
+-- inner joins use the ON condition to decide if it should keep the data
+
+-- use LEFT JOIN to sync data, keeping data from the left when there are mismatches or null values
+SELECT *
+FROM orders
+LEFT JOIN subscriptions
+    on orders.subscription_id = subscriptions.subscription_id;
+-- this keeps all orders no matter what but only keeps subscriptions with matching id's
+
+-- use CROSS JOIN to sync all rows regardless
+SELECT *
+FROM orders
+CROSS JOIN subscriptions;
+
+SELECT month, COUNT(*)
+FROM newspaper
+CROSS JOIN months
+-- get data for subscription status
+WHERE start_month <= month AND end_month >= month
+-- group by month to show amount of subscribers for each month
+GROUP BY 1;
+
+-- you can combine seperate data with matching columns using UNION
+SELECT 
