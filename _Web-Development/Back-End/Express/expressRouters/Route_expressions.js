@@ -5,7 +5,7 @@ const {
 	createElement,
 	updateElement,
 	getIndexById,
-} = require('../utils/expressUtils');
+} = require('../_utility-functions/utils');
 
 let expressions = [];
 seedElements(expressions, 'expressions');

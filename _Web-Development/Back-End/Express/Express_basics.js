@@ -7,7 +7,7 @@ const {
 	updateElement,
 	seedElements,
 	createElement,
-} = require('./utils/expressUtils');
+} = require('./_utility-functions/utils');
 
 const PORT = process.env.PORT || 4001;
 // Use static server to serve the Express Yourself Website
