@@ -5,7 +5,7 @@ const {
 	updateElement,
 	seedElements,
 	createElement,
-} = require('../utils/expressUtils');
+} = require('../_utility-functions/utils.js');
 
 let animals = [];
 seedElements(animals, 'animals');
