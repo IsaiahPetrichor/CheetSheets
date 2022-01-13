@@ -41,6 +41,14 @@ if (!process.env.IS_TEST_ENV) {
 // initialize parsing middleware
 app.use(bodyParser.json());
 
+// you can also create custom middleware, for example:
+const timeMiddleware = (req, res, next) => {
+	req.date = Date.now();
+	next();
+};
+app.use(timeMiddleware);
+// you can now access this to timestamp anything by calling req.date
+
 app.use('/beans/:beanName', (req, res, next) => {
 	const beanName = req.params.beanName;
 	if (!jellybeanBag[beanName]) {
