@@ -1,12 +1,21 @@
 const express = require('express');
 const app = express();
+// require in a Logging middleware
+// install with 'npm install morgan'
 const morgan = require('morgan');
+// require in body-parser to parse request bodies
+// install with 'npm install body-parser'
 const bodyParser = require('body-parser');
+// require in an error-handling middleware
+// install with 'npm install errorhandler'
+const errorhandler = require('errorhandler');
+// more express middleware on: https://github.com/expressjs
 
+// basic express setup
 app.use(express.static('public'));
-
 const PORT = process.env.PORT || 4001;
 
+// simple example data object
 const jellybeanBag = {
 	mystery: {
 		number: 4,
@@ -25,9 +34,11 @@ const jellybeanBag = {
 	},
 };
 
-// Logging Middleware
-app.use(morgan('dev'));
-
+// initialize logging middleware
+if (!process.env.IS_TEST_ENV) {
+	app.use(morgan('dev'));
+}
+// initialize parsing middleware
 app.use(bodyParser.json());
 
 app.use('/beans/:beanName', (req, res, next) => {
@@ -82,6 +93,12 @@ app.delete('/beans/:beanName', (req, res, next) => {
 	res.status(204).send();
 });
 
+// initialize error handling
+app.use((err, req, res, next) => {
+	errorhandler(err);
+});
+
+// start server
 app.listen(PORT, () => {
 	console.log(`Server is listening on port ${PORT}`);
 });
