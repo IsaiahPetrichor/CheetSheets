@@ -47,6 +47,10 @@ app.get('/expressions', (req, res, next) => {
 	res.send(expressions);
 });
 
+app.get('/', (req, res) => {
+	res.status(200).send('Hello nerd');
+});
+
 // Get a single expression
 /* 
 the ':' character tells express to put the following into the req.params object
@@ -56,7 +60,7 @@ app.get('/expressions/:id', (req, res, next) => {
 	if (foundExpression) {
 		res.send(foundExpression);
 	} else {
-		res.status(404).send();
+		res.status(404).send('Error 404');
 	}
 });
 
@@ -67,7 +71,7 @@ app.put('/expressions/:id', (req, res, next) => {
 		updateElement(req.params.id, req.query, expressions);
 		res.send(expressions[expressionIndex]);
 	} else {
-		res.status(404).send();
+		res.status(404).send('Error 404');
 	}
 });
 
@@ -78,7 +82,7 @@ app.post('/expressions', (req, res, next) => {
 		expressions.push(receivedExpression);
 		res.status(201).send(receivedExpression);
 	} else {
-		res.status(400).send();
+		res.status(400).send('Error 400: Request failed.');
 	}
 });
 
@@ -89,11 +93,11 @@ app.delete('/expressions/:id', (req, res, next) => {
 		expressions.splice(expressionIndex, 1);
 		res.status(204).send();
 	} else {
-		res.status(404).send();
+		res.status(404).send(`No expression with id: ${req.params.id}`);
 	}
 });
 
 // Start the server listening on the above defined port.
 app.listen(PORT, () => {
-	console.log(`Server is listening on ${PORT}`);
+	console.log(`Server is listening on port ${PORT}...`);
 });
