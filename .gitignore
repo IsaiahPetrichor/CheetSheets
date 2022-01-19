@@ -4,3 +4,8 @@
 
 #node modules
 /_Game-Development/Phaser/node_modules
+
+/_Web-Development/Back-End/Node-Postgres/node_modules
+
+#SQL Secret
+/_Web-Development/Back-End/Node-Postgres/secret.json
