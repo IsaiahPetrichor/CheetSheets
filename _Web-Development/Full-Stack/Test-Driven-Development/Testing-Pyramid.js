@@ -1,4 +1,4 @@
-// Unit Tests
+// Unit / Feature Tests
 /*
     Used to test specific pieces of the program, does not 
     interact with other parts of the tech stack.
@@ -16,7 +16,7 @@
     of inclusivity and descriptiveness.
 */
 
-// System Tests 
+// System Tests
 /*
     Full end to end tests that check the whole application is 
     working properly.
