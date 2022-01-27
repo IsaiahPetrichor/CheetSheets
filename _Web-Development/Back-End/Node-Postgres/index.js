@@ -1,5 +1,5 @@
 const { Pool, Client } = require('pg');
-const secret = require('./secret.json');
+import secret from './secret.json';
 
 const pool = new Pool(secret);
 
