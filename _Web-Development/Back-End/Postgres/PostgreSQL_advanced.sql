@@ -33,6 +33,10 @@ Durability - by storing all completed transactions in non-volitile
     they come at the cost of also increasing the time it takes to 
     modify the table the index belongs to and also takes drive storage
     to hold the index itself.
+
+    an index should be made on each column that is used in frequent
+    searches, you should order the index columns in order by usage
+    frequency.
     */
 
     -- CREATE INDEX, add _idx at the end of the index as best practice
@@ -46,6 +50,48 @@ Durability - by storing all completed transactions in non-volitile
     -- you can check size of a database using:
     SELECT pg_size_pretty
     (pg_total_relation_size('customers'));
+
+    -- Partial indexes are used to index a subset of a table
+    -- only useful on very large data sets.
+    CREATE INDEX users_user_name_internal_idx 
+        ON users (user_name)
+    WHERE email_address 
+        LIKE '%@wellsfargo.com';
+
+    CREATE INDEX customers_state_name_email_address_ordered_idx
+    ON customers (state_name DESC, email_address ASC);
+
+    -- all primary keys are automatically made into unique indexes
+
+    -- Clustered indexes physically organize data in tables
+    /* A note:
+        Postgres, unlike other systems, will not automatically use
+        existing cluster indexes when altering or adding new data.
+        you must re-cluster to properly maintain the organization.
+
+        **this is done in Postgres to maintain speedy operations.
+    */
+    -- Cluster by index
+    CLUSTER customers
+    USING customers_last_name_first_name_idx;
+    -- re-cluster a table
+    CLUSTER customers;
+    -- re-cluster entire database
+    CLUSTER;
+
+    /*
+    If you frequently use an index for one column and another for
+    a different column but also frequently use them together, weigh
+    the benefits of making a combined index
+    */
+
+    /* 
+    unique indexes can be made, as well as using functions in 
+    an index. be very careful using these as it can be incredibly
+    taxing on inserts and updates 
+    */
+    CREATE UNIQUE INDEX customers_email_address_lower_unique_idx
+    ON customers (LOWER(email_address));
 
 
 -- Database Tuning & Benchmarking
