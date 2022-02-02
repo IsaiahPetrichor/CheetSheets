@@ -93,6 +93,14 @@ Durability - by storing all completed transactions in non-volitile
     CREATE UNIQUE INDEX customers_email_address_lower_unique_idx
     ON customers (LOWER(email_address));
 
+    -- drop indexes, same syntax as others
+    DROP INDEX orders_customer_id_book_id_idx;
+
+    -- Select multiple tables from pg_indexes without multiple ORs
+    SELECT *
+    FROM pg_indexes
+    WHERE tablename IN ('customers', 'books', 'orders')
+    ORDER BY tablename, indexname;
 
 -- Database Tuning & Benchmarking
 /*
