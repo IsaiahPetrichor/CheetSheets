@@ -9,6 +9,7 @@
 
 #SQL Secret
 /_Web-Development/Back-End/Node-Postgres/secret.json
+/_Web-Development/Back-End/Node-Postgres/.ENV
 
 #Path to getting hired Notes
 /_Interview-Skills/gettingHired.md
