@@ -91,3 +91,7 @@ REFERENCES speakers (id) ON DELETE CASCADE;
 
 DELETE FROM speakers
 WHERE id = 2;
+
+-- alter a columns type
+ALTER TABLE table_name
+ALTER COLUMN col_name TYPE new_type;
