@@ -102,4 +102,24 @@ Durability - by storing all completed transactions in non-volitile
     WHERE tablename IN ('customers', 'books', 'orders')
     ORDER BY tablename, indexname;
 
--- Database Triggers
+-- Database Integrity
+    -- Triggers
+    /*
+    a database trigger is procedural code that is automatically 
+    executed in response to certain events on a particular table or 
+    view in a database. The trigger is mostly used for maintaining 
+    the integrity of the information on the database.
+
+    ** SIDE NOTE: Postgres uses EXECUTE PROCEDURE in older versions
+        and EXECUTE FUNCTION in newer ones.
+    */
+
+-- Database Tuning & Benchmarking
+/*
+
+*/
+
+-- Database Maintenance & Monitoring
+/*
+
+*/
