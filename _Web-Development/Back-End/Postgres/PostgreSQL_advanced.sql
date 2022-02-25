@@ -102,12 +102,4 @@ Durability - by storing all completed transactions in non-volitile
     WHERE tablename IN ('customers', 'books', 'orders')
     ORDER BY tablename, indexname;
 
--- Database Tuning & Benchmarking
-/*
-
-*/
-
--- Database Maintenance & Monitoring
-/*
-
-*/
+-- Database Triggers
