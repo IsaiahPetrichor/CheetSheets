@@ -157,13 +157,3 @@ Durability - by storing all completed transactions in non-volitile
 
     -- Remove triggers using DROP TRIGGER
     DROP TRIGGER update_when_trigger ON clients;
-
--- Database Tuning & Benchmarking
-/*
-
-*/
-
--- Database Monitoring
-/*
-
-*/
