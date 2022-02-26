@@ -102,7 +102,7 @@ Durability - by storing all completed transactions in non-volitile
     WHERE tablename IN ('customers', 'books', 'orders')
     ORDER BY tablename, indexname;
 
--- Database Integrity
+-- Database Integrity & Maintenance
     -- Triggers
     /*
     a database trigger is procedural code that is automatically 
@@ -114,12 +114,56 @@ Durability - by storing all completed transactions in non-volitile
         and EXECUTE FUNCTION in newer ones.
     */
 
+    -- Creating a Trigger
+    -- CREATE TRIGGER trigger_name
+    CREATE TRIGGER insert_trigger
+        -- BEFORE/AFTER <SQL_ACTION> ON table_name
+        BEFORE INSERT ON customers
+        -- FOR EACH ROW/STATEMENT (run per record or per query)
+        FOR EACH ROW
+        -- EXECUTE PROCEDURE/FUNCTION function_name();
+        EXECUTE FUNCTION insert_function();
+    /*
+        BEFORE calls your trigger before the 
+        query that fired the trigger runs, allowing you to apply the 
+        actions in the function previous to the query. Specifically 
+        letting you modify the row that is being modified when using an 
+        INSERT or UPDATE, like we did in the previous lesson.
+    */
+    CREATE TRIGGER after_trigger
+        AFTER UPDATE ON customers
+        FOR EACH ROW
+        EXECUTE FUNCTION log_customers_change();
+    /*
+        AFTER occurs once the query finishes its work. This allows your 
+        trigger to activate once the query it was activated by has finished 
+        its work. This will not let you modify the row that is being 
+        modified as the process has already finished. This is quite useful 
+        for logging purposes, such as inserting into an audit table to track
+        who did a change and when.
+    */
+
+    -- Add focus to your triggers with the WHEN clause
+    CREATE TRIGGER update_when_trigger
+        BEFORE UPDATE ON clients
+        FOR EACH ROW
+        WHEN (NEW.total_spent >= 1000)
+        EXECUTE FUNCTION set_high_spender();
+
+    -- Triggers run ALPHABETICALLY not in order.
+
+    -- Select all triggers in a database
+    SELECT * FROM information_schema.triggers;
+
+    -- Remove triggers using DROP TRIGGER
+    DROP TRIGGER update_when_trigger ON clients;
+
 -- Database Tuning & Benchmarking
 /*
 
 */
 
--- Database Maintenance & Monitoring
+-- Database Monitoring
 /*
 
 */
