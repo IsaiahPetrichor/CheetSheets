@@ -63,7 +63,6 @@ GRANT SELECT, DELETE, UPDATE, INSERT ON TABLES TO writer;
     -- Grant permissions to select but only on specific rows
     CREATE POLICY user_is_salesperson ON accounts FOR DELETE
         TO sales USING (salesperson = current_user);
-    
-    -- Needs to be enabled
+    -- Row Sec needs to be enabled
     ALTER TABLE accounts ENABLE ROW LEVEL SECURITY;
 }
