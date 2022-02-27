@@ -1,22 +1,26 @@
 -- ACID (Atomicity, consistency, isolation, durability)
-/*
-Atomicity - guarantees that a database transaction succeeds or fails
-    in its entirety. this ensures that partial transactions do not
-    happen as they can cause massive issues.
-Consistency - using validation, constraints and other methods, this
-    protects the database from illegal transactions (transactions that
-    break the rules of the schema)
-Isolation - this property is to ensure that concurrent transactions 
-    do not have an effect on one another and all transactions leave 
-    the state of the database the same as if they were sequential.
-Durability - by storing all completed transactions in non-volitile 
-    memory (ie. disk-drives) instead of volitile memory (ie. RAM)
-    we guarantee that in unforseen issues and power outages, the 
-    database remains intact.
-*/
+{
+    /*
+    Atomicity - guarantees that a database transaction succeeds or fails
+        in its entirety. this ensures that partial transactions do not
+        happen as they can cause massive issues.
+    Consistency - using validation, constraints and other methods, this
+        protects the database from illegal transactions (transactions that
+        break the rules of the schema)
+    Isolation - this property is to ensure that concurrent transactions 
+        do not have an effect on one another and all transactions leave 
+        the state of the database the same as if they were sequential.
+    Durability - by storing all completed transactions in non-volitile 
+        memory (ie. disk-drives) instead of volitile memory (ie. RAM)
+        we guarantee that in unforseen issues and power outages, the 
+        database remains intact.
+    */
+}
 
 -- Database Performance
-    -- Indexes, organizations of data within a table
+    
+-- Indexes, organizations of data within a table
+{
 
     -- select all indexes within a table
     SELECT *
@@ -101,9 +105,12 @@ Durability - by storing all completed transactions in non-volitile
     FROM pg_indexes
     WHERE tablename IN ('customers', 'books', 'orders')
     ORDER BY tablename, indexname;
+}
 
 -- Database Integrity & Maintenance
-    -- Triggers
+
+-- Triggers
+{
     /*
     a database trigger is procedural code that is automatically 
     executed in response to certain events on a particular table or 
@@ -157,3 +164,52 @@ Durability - by storing all completed transactions in non-volitile
 
     -- Remove triggers using DROP TRIGGER
     DROP TRIGGER update_when_trigger ON clients;
+}
+
+-- Maintenance
+{
+    /*
+    When an UPDATE or DELETE is called, PostgreSQL doesn’t physically 
+    delete the content from the disk. Instead, the database engine 
+    marks those rows so that they aren’t returned in user queries.
+
+    DELETE doesn't remove the data and UPDATE actually DELETE's the
+    old data (but keeps in on disk) and creates a new record
+    */
+
+    -- Check the sizes of a database
+    SELECT 
+    pg_size_pretty(pg_table_size('table_name')) as tbl_size, 
+    pg_size_pretty(pg_indexes_size('table_name')) as idx_size,
+    pg_size_pretty(pg_total_relation_size('table_name')) as total_size;
+    -- pg_size_pretty() returns formatted sizing instead of bytes
+
+    -- Use VACUUM to clean dead tuples
+    VACUUM table_name;
+    /*
+    VACUUM will default to just reserve space for future updates on
+    records with unique primary keys that match a live record
+
+    AUTOVACUUM is enabled by Postgres on most databases by default
+    */
+
+    -- Check automated pg processes from the pg_stat_all_tables schema
+    SELECT relname, 
+        last_vacuum,
+        last_autovacuum, 
+        last_analyze,
+        n_live_tup,
+        n_dead_tup
+    FROM pg_stat_all_tables 
+    WHERE relname = 'books';
+
+    -- VACUUM FULL will clear all unused data from a database
+    VACUUM FULL table_name;
+    /*
+    This is a blocking function that should not be used on large
+    production databases
+    */
+
+    -- Use TRUNCATE to clear all data without needing to VACUUM after
+    TRUNCATE table_name;
+}
