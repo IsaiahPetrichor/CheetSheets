@@ -25,3 +25,8 @@
     - Symmetrical is using a single key to encrypt and decrypt data. 
     - Asymmetrical is using a key for encryption and a seperate key for decryption.
 ---
+
+## Public-Key Infrastructure & HTTPS
+    **PKI is a system that designates trusted authorities who verify that you’re interacting with who you think you are.**
+    
+    > HTTPS is the standard system used by web browsers to implement a PKI. Without HTTPS your website is vulnerable to both transit data exposure as well as website spoofing.
