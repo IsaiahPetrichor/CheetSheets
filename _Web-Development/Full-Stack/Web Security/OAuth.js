@@ -186,3 +186,5 @@ app.get('/secret', authenticateRequest, (req, res) => {
 });
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
+
+// **note to self: check the 'oauth' project for real world implementation
