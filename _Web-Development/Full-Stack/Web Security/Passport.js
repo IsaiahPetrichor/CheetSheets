@@ -43,7 +43,7 @@ passport.serializeUser((user, done) => {
 // the deserializeUser function takes the cookie
 // and checks the database for that user
 passport.deserializeUser((id, done) => {
-	db.users.findById(id, function (err, user) {
+	db.users.findById(id, (err, user) => {
 		if (err) return done(err);
 		return done(null, user);
 	});
