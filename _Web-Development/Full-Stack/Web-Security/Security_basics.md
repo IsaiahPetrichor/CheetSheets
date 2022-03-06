@@ -1,7 +1,9 @@
 # Check the OWASP Top 10 @ https://owasp.org/www-project-top-ten/
+
 ---
 
-## Authentication:
+## Authentication
+
     **Authentication is verificatio that you are who you say you are.**
 
     *Authentication relies on one or more factors to verify identity, and these factors come in ==three main types==:*
@@ -9,29 +11,36 @@
     - Knowledge is something you know, like a username and password.
     - Possession is something you have, like a security card or mobile device
     - Inherence is something you are, which generally refers to biometric data such as fingerprints.
+
 ---
 
-## Authorization:
+## Authorization
+
     **Authorization is verification of your privileges.**
 
     > Using role or user permissions in combination with proper Auth techniques creates a system where users can only access what you want them to be able to access. without authorization, users could access and/or alter ==any part== of the application. This includes other users and even the main database or admin accounts.
+
 ---
 
-## Encryption:
-    **Encryption is the process of changing data into an unreadable format unless you have the proper private key to decrypt it.**
-    
-    *Encryption has two main types:* 
+## Encryption
 
-    - Symmetrical is using a single key to encrypt and decrypt data. 
+    **Encryption is the process of changing data into an unreadable format unless you have the proper private key to decrypt it.**
+
+    *Encryption has two main types:*
+
+    - Symmetrical is using a single key to encrypt and decrypt data.
     - Asymmetrical is using a key for encryption and a seperate key for decryption.
+
 ---
 
 ## Public-Key Infrastructure & HTTPS
+
     **PKI is a system that designates trusted authorities who verify that you’re interacting with who you think you are.**
-    
+
     > HTTPS is the standard system used by web browsers to implement a PKI. Without HTTPS your website is vulnerable to both transit data exposure as well as website spoofing.
 
 ## HTTP Security Headers
+
     > HTTP responses can contain headers with extra information that tells the client (browser) how to behave. Security-related headers are added in server-to-client responses to reflect a policy that the website wants to implement, like enforcing HTTPS communications over HTTP, or limiting whether a browser is allowed to render the current webpage in an iframe on another site.
 
     Common headers include:
