@@ -16,51 +16,50 @@ or all of the ts files in the directory
 
 // Declare types for parameters in function definitions
 function hello(name: string, count: number) {
-    for (let i = count; i > 0; i--) {
-        console.log(`Hello ${name}!`);
-    }
+	for (let i = count; i > 0; i--) {
+		console.log(`Hello ${name}!`);
+	}
 }
 
 // make a parameter optional by adding '?' after the name
 function doStuff(num?: number) {
-    console.log(`Your number was ${num || 0}`);
+	console.log(`Your number was ${num || 0}`);
 }
 // otherwise use a default parameter to accomplish the same thing
 function doStuff2(num = 0) {
-    console.log(`Your number was ${num}`);
+	console.log(`Your number was ${num}`);
 }
 
 // TypeScript has type inferencing that will help in many cases
 function returnStuff(bonk: string) {
-    return `${bonk}`;
+	return `${bonk}`;
 }
 const bingBong = returnStuff('bonk');
 // TS knows this HAS to be a string.
-const bingBong2: number = returnStuff('bonk');
+// const bingBong2: number = returnStuff('bonk');
 /* this will throw an error because you cant implicitly convert
 a string to a number. */
 
 // Explicitly declare the return type in a function
 function returnType(str: string): string {
-    if (str === 'bing bong') {
-        return `olo ${str}`;
-    }
+	if (str === 'bing bong') {
+		return `olo ${str}`;
+	}
 
-    return 0;
-    // throws error because it must return string.
+	// return 0;
+	// would throw error because it must return string.
 }
 
 // if a function has no return value use void
 function simpleLog(): void {
-    console.log('I like turtles');
+	console.log('I like turtles');
 }
 
 // TypeScript adds a third type of comment for documentation
 /**
  * This is the TS documentation comment
- * The format starts with an extra asterisk 
- * 
+ * The format starts with an extra asterisk
+ *
  * @param paramName - this is documenting a functions first parameter
  * @returns this is documenting what the function should return
  */
-
