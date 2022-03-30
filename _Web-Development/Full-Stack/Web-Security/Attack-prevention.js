@@ -1,3 +1,11 @@
+const express = require('express');
+const session = require('express-session');
+
+const PORT = process.env.PORT || 4001;
+const app = express();
+
+app.use(express.static("public"));
+
 // Common Attacks on the web and how to prevent them
 
 // Cross-Site Scripting (XSS)
@@ -45,8 +53,34 @@
         will return a pop-up box.
     */
 
+    // to stop XSS attacks you need to sanitize input and 
+    // only send cookies over https, in this example using express-session
+    app.use(session({
+        secret: "superSecretValue",
+        resave: true,
+        saveUninitialized: true,
+        cookie: {
+            httpOnly: true,
+            secure: true
+        }
+    }))
+
     // for an easy way to sanitize input effectively, import sanitize-html
     import sanitize from 'sanitize-html';
+
+    // Another quality package for security is helmet.js
+    import helmet from 'helmet';
+    app.use(helmet());
+
+    // validate and sanitize using express-validator
+    // use the check() method to validate formatting
+    import {check} from 'express-validator';
+    // use as middleware with a method
+    check('email').isEmail()
+    check('password').isLength({min: 5})
+
+    // in the browser use element.textContent instead of element.innerHTML
+    Document.getElementById('main-heading').textContent = 'Hello Nerd!';
 }
 
 // Cross-Site Request Forgery (CSRF)
