@@ -54,3 +54,134 @@
 
 	downloadStatus('downloading');
 }
+
+// Type Narrowing
+{
+	// Type Guards
+	function formatStatistic(stat: string | number) {
+		// verify that its a number with a type guard
+		if (typeof stat === 'number') {
+		  return stat.toFixed(2);
+		}
+		// do the same for a string
+		if (typeof stat === 'string') {
+		  return stat.toUpperCase();
+		}
+	  }
+	  
+	// More effectively use the 'in' operator for custom types
+	type Cat = {
+		name: string;
+		run: () => string;
+	}
+	type Fish = {
+		name: string;
+		swim: () => string;
+	}
+
+	function exercise(pet: Cat | Fish) {
+		  if ('run' in pet) return pet.run();
+		  if ('swim' in pet) return pet.swim();
+	}
+
+	// Type guard with an 'else' instead of another 'if' (duh)
+	function doStuff(input: number | string[]) {
+		if (typeof input === 'number') return input.toFixed(2);
+		else {
+			input.forEach(str => console.log(str.toUpperCase()));
+		}
+	}
+
+	// if there is a return statement typescript will infer type
+	function doStuff2(input: number | string) {
+		if (typeof input === 'string') return input.concat('!');
+		return input.toString();
+	}
+}
+
+// Advanced object typing
+{
+	// interfaces are more constrained types that only work with objects
+	interface Bonk {
+		bing: string;
+		bong: number;
+		doBonk: () => void;
+	}
+
+	// create a class using the 'implements' keyword with an interface
+	class SuperBonk implements Bonk {
+		bing = 'bing bong';
+		bong = 6;
+
+		doBonk() {
+			while (bong > 0) {
+				console.log(bing);
+				bong--;
+			}
+		}
+	}
+
+	// Deep types
+	interface Directory {
+		config: {
+			default: {
+				encoding: string;
+				permissions: string;
+			}
+		}
+	}
+
+	// Composed types
+	interface About {
+		general: General;
+	}
+	   
+	interface General {
+		id: number;
+		name: string;
+		version: Version;
+	}
+	   
+	interface Version {
+		versionNumber: number;
+	}
+
+	// Extending Interfaces
+	interface Developer extends Human {
+		code: () => void;
+	}
+
+	interface Human {
+		name: string;
+		hobbies: string[];
+	}
+	  
+	const me: Developer = { 
+		code: () => console.log('Headphones on. Cappucino made. Editor open.'),
+		name: 'Isaiah', 
+		hobbies: ['Gaming', 'Cuddling with Pets', 'Spending Time With Wife']
+	}
+	  
+	me.code();
+
+	// Index signatures
+	/* When you don't know the name of a certain property you can use typed
+	 signatures to continue to code without risk of unexpected property keys
+	 causing errors */
+	interface Budget {
+		[category: string]: number;
+	}
+	  
+	async function getBudget() {
+		const result: Budget = await getBudgetAsync();
+		console.log(result);
+	}
+
+	// Optional type members
+	interface Profile {
+		// using the '?' before the ':' tells TypeScript it is optional
+		firstName?: string;
+		lastName?: string;
+		username: string;
+	}
+}
