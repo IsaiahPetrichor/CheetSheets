@@ -1,4 +1,4 @@
-# Check the OWASP Top 10 @ https://owasp.org/www-project-top-ten/
+# Check the OWASP Top 10 @ <https://owasp.org/www-project-top-ten/>
 
 ---
 
