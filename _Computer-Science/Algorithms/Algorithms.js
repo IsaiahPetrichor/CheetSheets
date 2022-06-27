@@ -17,14 +17,6 @@
     */
 }
 
-// Example
-// Helper swapping function
-const swap = (arr, indexOne, indexTwo) => {
-	const temp = arr[indexTwo];
-	arr[indexTwo] = arr[indexOne];
-	arr[indexOne] = temp;
-};
-
 // Actual sorting algorithm
 const bubbleSort = (input) => {
 	let swapCount = 0;
