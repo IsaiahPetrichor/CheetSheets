@@ -1,10 +1,9 @@
 Current:
-  - Web Security
-  - DevOps
-  - Operating System Fundamentals
+  - C#
+  - Python
+  - TailwindCSS
 
 Upcoming:
-  - Python
   - MongoDB
   - Next.js
   - Nest.js
@@ -16,22 +15,3 @@ Future:
   - Computer Architecture
   - Discrete Math
   - +More
-
-Completed:
-  - HTML
-  - CSS
-  - Accessibility
-  - JavaScript
-  - React
-  - Redux
-  - Git
-  - TDD
-  - Node
-  - Express
-  - SQL
-  - Postgres
-  - OpenAPI / Swagger
-  - MVC Architecture
-  - Data Structures
-  - Algorithms
-  - TypeScript
