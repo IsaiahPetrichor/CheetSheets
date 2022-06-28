@@ -1,4 +1,4 @@
-// HASH MAPS
+// Hash Map / Hashtable
 {
 	/*
     A hash map is:
