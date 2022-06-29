@@ -16,7 +16,6 @@ Binary Tree
     and must have a data greater than the root node’s data
 */
 
-//Example
 class BinaryTree {
 	constructor(value, depth = 1) {
 		this.value = value;
@@ -63,5 +62,17 @@ class BinaryTree {
 		console.log(this.value, this.depth);
 	}
 }
+
+// Example
+const simpleTree = new BinaryTree(32);
+
+simpleTree.insert(23);
+simpleTree.insert(64);
+simpleTree.insert(21);
+simpleTree.insert(12);
+simpleTree.insert(45);
+simpleTree.insert(19);
+
+console.log(simpleTree.depthFirstTraversal());
 
 module.exports = BinaryTree;

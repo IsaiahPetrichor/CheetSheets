@@ -105,6 +105,7 @@ class DoublyLinkedList {
 	}
 }
 
+// example
 const subway = new DoublyLinkedList();
 
 subway.addToHead('TimesSquare');

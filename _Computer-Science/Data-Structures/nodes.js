@@ -19,6 +19,7 @@ Can be orphaned if there are no existing links to them
 class Node {
 	constructor(data) {
 		this.data = data;
+		this.previous = null;
 		this.next = null;
 	}
 
@@ -31,8 +32,20 @@ class Node {
 		}
 	}
 
+	setPreviousNode(node) {
+		if (node instanceof Node || node === null) {
+			this.previous = node;
+		} else {
+			throw new Error('Previous node must be a member of the Node class.');
+		}
+	}
+
 	getNextNode() {
 		return this.next;
+	}
+
+	getPreviousNode() {
+		return this.previous;
 	}
 }
 
