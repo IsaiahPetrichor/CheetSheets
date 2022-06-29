@@ -10,10 +10,10 @@ entire dataset.
 
 Θ(N*logN). You will see this runtime in sorting algorithms.
 
-Θ(N2). This is an example of a polynomial runtime. You will see this runtime when you have to 
+Θ(N^2). This is an example of a polynomial runtime. You will see this runtime when you have to 
 search through a two-dimensional dataset (like a matrix) or nested loops.
 
-Θ(2N). This is exponential runtime. You will often see this runtime in recursive algorithms 
+Θ(2^N). This is exponential runtime. You will often see this runtime in recursive algorithms 
 (Don’t worry if you don’t know what that is yet!).
 
 Θ(N!). This is factorial runtime. You will often see this runtime when you have to generate 
