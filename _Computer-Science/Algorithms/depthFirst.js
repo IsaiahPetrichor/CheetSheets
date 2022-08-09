@@ -1,23 +1,14 @@
-const Graph = require('../Data-Structures/graphs');
+const depthFirstTraversal = (adj, V, visited = [V]) => {
+	console.log(V);
 
-const depthFirstTraversal = (start, callback, visitedVertices = [start]) => {
-	callback(start);
-
-	start.edges.forEach((edge) => {
-		const neighbor = edge.end;
-
-		if (!visitedVertices.includes(neighbor)) {
-			visitedVertices.push(neighbor);
-			depthFirstTraversal(neighbor, callback, visitedVertices);
+	adj[V].forEach((neighbor) => {
+		if (!visited.includes(neighbor)) {
+			visited.push(neighbor);
+			depthFirstTraversal(adj, neighbor, visited);
 		}
 	});
 };
 
-// examples
-const sampleGraph = new Graph(false, false);
+const adjList = [[1, 3], [0, 2], [1], [0]];
 
-depthFirstTraversal(sampleGraph.vertices[0], (vertex) => {
-	console.log(vertex.data);
-});
-
-depthFirstTraversal(sampleGraph.vertices[0]);
+depthFirstTraversal(adjList, 0);

@@ -1,33 +1,39 @@
-const Graph = require('../Data-Structures/graphs');
-const Queue = require('../Data-Structures/queues');
-
 /*
 	Breadth-First Traversal
 	breadth-first iterates through the whole graph in layers by going down one layer, 
 	which comprises the start vertex’s direct neighbors. Then it proceeds down to 
 	the next layer which consists of all the vertices that are neighbors of the 
 	vertices in the previous layer.
-	*/
+*/
 
 // Example
-const breadthFirstTraversal = (start) => {
-	const visitedVertices = [start];
-	const visitQueue = new Queue();
-	visitQueue.enqueue(start);
-	while (!visitQueue.isEmpty()) {
-		const current = visitQueue.dequeue();
-		console.log(current.data);
-		current.edges.forEach((edge) => {
-			const neighbor = edge.end;
+const breadthFirstTraversal = (adj, V) => {
+	// V is the start vertex
+	// adj is an adjacency list represented by a 2D array
 
-			if (!visitedVertices.includes(neighbor)) {
-				visitedVertices.push(neighbor);
-				visitQueue.enqueue(neighbor);
+	// array holding visited verticies
+	const visited = new Set([V]);
+
+	// make a queue
+	const queue = [V];
+	console.log(V);
+
+	while (queue.length > 0) {
+		const current = queue.shift();
+
+		adj[current].forEach((neighbor) => {
+			const number = Number(neighbor);
+
+			if (!visited.has(number)) {
+				visited.add(number);
+				queue.push(number);
+
+				console.log(number);
 			}
 		});
 	}
 };
 
-const sampleGraph = new Graph(false, false);
+const adjList = [[1, 3], [0, 2], [1], [0]];
 
-breadthFirstTraversal(sampleGraph.vertices[0]);
+breadthFirstTraversal(adjList, 0);
