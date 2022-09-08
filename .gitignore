@@ -3,7 +3,6 @@
 /CppProperties.json
 
 #node modules
-/_Game-Development/Phaser/node_modules
 /_Computer-Science/Algorithms/node_modules
 /_Computer-Science/Algorithms/package-lock.json
 /_Web-Development/Back-End/Node-Postgres/node_modules
