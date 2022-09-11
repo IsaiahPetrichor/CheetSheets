@@ -77,20 +77,25 @@ while i < len(exampleList):
 
 #############################
 
+# sorting has to be same type elements
+exampleList2 = [1, 5, 239, 2, 4]
+
 # List Sorting
-exampleList.sort()
+exampleList2.sort()
 
 # Reverse sorting
-exampleList.sort(reverse = True)
+exampleList2.sort(reverse = True)
 
 # custom sort
 def customFunc(n):
     return abs(n - 1)
 
-exampleList.sort(key = customFunc)
+exampleList2.sort(key = customFunc)
 
+
+exampleList3 = ["a", "z", "c", "gh"]
 # case insensitive sort
-exampleList.sort(key = str.lower)
+exampleList3.sort(key = str.lower)
 
 # Reverse list
 exampleList.reverse()
