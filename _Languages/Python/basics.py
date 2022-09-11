@@ -83,3 +83,9 @@ between0And6 = random.randrange(0, 7) # Up to but not including 7
 # Booleans
 # evaluates to false: empty values like (), [], {}, "", 0, None, and False
 # Remember, bools are Case Sensitive in Python
+
+###########################################
+
+# Get user input
+username = input("Enter username: ")
+print("Hello", username + "!")
