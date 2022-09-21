@@ -13,3 +13,13 @@
 
 #Path to getting hired Notes
 /_Interview-Skills/gettingHired.md
+
+#Builds
+*.exe
+
+#csharp solutions
+/_Languages/C#/*.sln
+/_Languages/C#/*.csproj
+/_Languages/C#/.vs
+/_Languages/C#/bin
+/_Languages/C#/obj

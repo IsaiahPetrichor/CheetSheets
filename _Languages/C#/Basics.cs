@@ -1,21 +1,11 @@
-// import with the 'using' keyword
-using System;
-
-// Comments in C# are exactly the same as JS
-/* single line and multi line included */
-
-// namespace declares where the program is contained
-namespace HelloWorld
+﻿internal class Basics
 {
-  // C# is object oriented and has all functions based in Classes
-  class Program
-  {
-    // The main functions is the entry point to the functionality
-    static void Main()
+    private static void Main(string[] args)
     {
-      // the Console object comes from System
-      Console.WriteLine("\"Isaiah\"");
-      // \ is a string escape character in C#
+        // use WriteLine to output to the console
+        Console.WriteLine("Hello, World!");
+        // or use Write to output without creating a new line
+        Console.Write("Bing bong");
+        Console.WriteLine(", Same line!");
     }
-  }
 }
