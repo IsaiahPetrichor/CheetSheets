@@ -20,6 +20,7 @@
 #csharp solutions
 /_Languages/C#/*.sln
 /_Languages/C#/*.csproj
+/_Languages/C#/*.user
 /_Languages/C#/.vs
 /_Languages/C#/bin
 /_Languages/C#/obj
