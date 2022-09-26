@@ -24,3 +24,7 @@
 /_Languages/C#/.vs
 /_Languages/C#/bin
 /_Languages/C#/obj
+
+#Compiled Java
+/_Languages/Java/*.class
+/_Languages/Java/*.jar
