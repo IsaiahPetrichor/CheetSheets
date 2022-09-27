@@ -85,6 +85,19 @@ public class Basics {
         int asd = c < number ? c : number;
         System.out.println(asd);
 
+        // Switch statements
+        switch(myStr.length()){
+            case 1:
+                // do something
+                break;
+            case 2:
+                // do something
+                break;
+            default:
+                System.out.println("Greater than two");
+
+        }
+
         ////////////////////////////////////////
         // Math
         // all the basics
