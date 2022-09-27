@@ -51,5 +51,46 @@ public class Basics {
         // OR
         int x, y, z;
         x = y = z = 5;
+
+        System.out.println("\nAll my unused variables so far: ");
+        System.out.println(myByte);
+        System.out.println(myBool);
+        System.out.println(myLetter);
+        System.out.println(myShort);
+        System.out.println(myLong);
+        System.out.println(myFloat);
+        System.out.println(myDub);
+        System.out.println(myStr);
+        System.out.println(wasDouble);
+        System.out.println(number);
+        System.out.println(b + c);
+        System.out.println("End of random variables\n\n");
+
+        ////////////////////////////////////////
+        // Conditionals
+
+        // if / else / else if
+        if (a < x) {
+            // do something
+            System.out.println("first block");
+        } else if (y > z) {
+            // do something
+            System.out.println("second block");
+        } else {
+            // do something
+            System.out.println("third block");
+        }
+
+        // Ternary operator | variable = (condition) ? expressionTrue :  expressionFalse;
+        int asd = c < number ? c : number;
+        System.out.println(asd);
+
+        ////////////////////////////////////////
+        // Math
+        // all the basics
+        Math.min(5, 23);
+        Math.max(5, 23);
+        Math.abs(-456978);
+        Math.sqrt(4598);
     }
 }
