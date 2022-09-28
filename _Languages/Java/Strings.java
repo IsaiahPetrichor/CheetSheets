@@ -34,5 +34,9 @@ public class Strings {
 
         // single quotes do not need escaped if double quotes are used
         System.out.println("Hello apples' \"\\\\ ");
+
+        // Print out formatted strings to input variables directly
+        String name = "Isaiah";
+        System.out.printf("Hello %s, This is your computer speaking.", name);
     }
 }
