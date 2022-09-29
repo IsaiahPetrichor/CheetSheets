@@ -14,5 +14,6 @@ public class Arrays {
 
         // Multidimentional arrays
         int[][] matrix = {{0, 0, 1}, {0, 1, 0}, {0, 0, 0}};
+        System.out.println(matrix);
     }
 }
