@@ -12,8 +12,8 @@
             Console.WriteLine(myString.ToLower());
 
             // Concatenation
-            Console.WriteLine(myString + " " + secondStr));
-            Console.WriteLine(string.Concat(myString, " I eat rice often!");
+            Console.WriteLine(myString + " " + secondStr);
+            Console.WriteLine(string.Concat(myString, " I eat rice often!"));
 
             // Interpolation
             Console.WriteLine($"{myString} Did you know that {secondStr}");
