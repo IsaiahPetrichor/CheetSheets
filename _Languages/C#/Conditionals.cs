@@ -4,15 +4,20 @@ namespace c_sharp
     {
         public static void GetConditionals()
         {
+            // if / else / else if
             int x = 0;
             int y = 4;
             if (x > y)
             {
-                Console.WriteLine("x is greater that y")
+                Console.WriteLine("x is greater than y");
             }
             else if (y > x)
             {
-                // do something else
+                Console.WriteLine("x is less than y");
+            }
+            else
+            {
+                Console.WriteLine("x is equal to y");
             }
         }
     }

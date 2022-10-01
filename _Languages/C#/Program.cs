@@ -16,6 +16,9 @@
             Console.WriteLine("\n\n//*** Begin Strings.cs ***//\n");
             Strings.GetStrings();
 
+            Console.WriteLine("\n\n//*** Begin Conditionals.cs ***//\n");
+            Conditionals.GetConditionals();
+
             Console.WriteLine("\n\n\n\n");
         }
     }
