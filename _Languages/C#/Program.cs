@@ -25,6 +25,10 @@
             Console.WriteLine("\n\n//*** Begin Arrays.cs ***//\n");
             Arrays.GetArrays();
 
+            Console.WriteLine("\n\n//*** Begin Classes.cs ***//\n");
+            Classes newClass = new Classes(182, "Math 101", "Thomas Murdok");
+            newClass.PrintClass();
+
             Console.WriteLine("\n\n\n\n");
         }
     }
