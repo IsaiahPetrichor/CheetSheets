@@ -19,6 +19,12 @@
             Console.WriteLine("\n\n//*** Begin Conditionals.cs ***//\n");
             Conditionals.GetConditionals();
 
+            Console.WriteLine("\n\n//*** Begin Loops.cs ***//\n");
+            Loops.GetLoops();
+
+            Console.WriteLine("\n\n//*** Begin Arrays.cs ***//\n");
+            Arrays.GetArrays();
+
             Console.WriteLine("\n\n\n\n");
         }
     }
