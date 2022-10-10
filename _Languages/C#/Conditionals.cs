@@ -19,6 +19,22 @@ namespace c_sharp
             {
                 Console.WriteLine("x is equal to y");
             }
+
+            // Switch statement
+            int time = 12;
+            switch (time)
+            {
+                case 12:
+                    Console.WriteLine("It's noon!");
+                    break;
+
+                case 0:
+                    Console.WriteLine("It's midnight!");
+                    break;
+
+                default:
+                    break;
+            }
         }
     }
 }
